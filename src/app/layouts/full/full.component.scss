@@ -1,0 +1,21 @@
+.max-width {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.logo-icon {
+  width: 45px; /* Adjust size as needed */
+  height: 45px;
+  margin-right: 8px; /* Adjust spacing as needed */
+  object-fit: cover; /* Ensure the logo fits */
+  display: flex;
+  align-items: center; /* Center the logo vertically */
+}
+
+#logo {
+  font-weight: bold;
+  font-size: 22px;
+  margin: 0; /* Remove default margin */
+  display: flex;
+  align-items: center; /* Center the text vertically */
+  color: #ffffff;
+}

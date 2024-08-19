@@ -1,0 +1,97 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-dark font-medium fs-4">Agent List</h2>
+    <div class="d-flex align-items-center">
+      <div class="position-relative me-3">
+        <input 
+          type="text" 
+          class="form-control pe-5" 
+          placeholder="Search by Matricule" 
+          [(ngModel)]="searchMat" 
+          (keyup)="onSearch()">
+        <i class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"></i>
+      </div>
+      <button type="button" class="btn btn-success" (click)="openAddAgentModal()">
+        <i class="bi bi-person-plus-fill me-2"></i>Add Agent
+      </button>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table align-middle text-nowrap">
+      <thead class="table-dark">
+        <tr>
+          <th class="text-light font-medium fs-5">Agent</th>
+          <th class="text-light font-medium fs-5">Matricule</th>
+          <th class="text-light font-medium fs-5">Email</th>
+          <th class="text-light font-medium fs-5">Absence</th>
+          <th class="text-light font-medium fs-5 text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ag of filtredAgents">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="../../../assets/images/users/user2.jpg" alt="user" width="45" class="rounded-circle">
+              <div class="ms-3">
+                <h5 class="mb-0 font-medium">{{ ag.nom }} {{ ag.prenom }}</h5>
+              </div>
+            </div>
+          </td>
+          <td class="fs-4">{{ ag.matricule }}</td>
+          <td>{{ ag.email }}</td>
+          <td>{{ ag.absence }}</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-outline-info btn-sm me-2" (click)="openEditAgentModal(ag)">
+              Update
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm me-2" (click)="deleteAgent(ag.matricule)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add/Edit Agent Modal -->
+  <div class="modal fade" id="addAgentModal" tabindex="-1" aria-labelledby="addAgentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addAgentModalLabel">{{ isEditMode ? 'Update Agent' : 'Add Agent' }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()" #agentForm="ngForm">
+            <div class="mb-3">
+              <label for="nom" class="form-label">Nom</label>
+              <input type="text" id="nom" required [(ngModel)]="agent.nom" name="nom" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="prenom" class="form-label">Prenom</label>
+              <input type="text" id="prenom" required [(ngModel)]="agent.prenom" name="prenom" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" required [(ngModel)]="agent.email" name="email" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password" required [(ngModel)]="agent.password" name="password" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="matricule" class="form-label">Matricule</label>
+              <input type="text" id="matricule" required [(ngModel)]="agent.matricule" name="matricule" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="absence" class="form-label">Absence</label>
+              <input type="text" id="absence" required [(ngModel)]="agent.absence" name="absence" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Add' }}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

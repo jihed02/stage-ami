@@ -1,0 +1,82 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-dark font-medium fs-4">Reclamation List</h2>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table align-middle text-nowrap">
+      <thead class="table-dark">
+        <tr>
+          <th class="text-light font-medium fs-5">Client</th>
+          <th class="text-light font-medium fs-5">Reclamation</th>
+          <th class="text-light font-medium fs-5">Date</th>
+          <th class="text-light font-medium fs-5">Status</th>
+          <th class="text-light font-medium fs-5 text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rec of reclamations">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="../../../assets/images/users/user1.jpg" alt="user" width="45" class="rounded-circle">
+              <div class="ms-3">
+                <h5 class="mb-0 font-medium">{{rec.clientNom}} {{rec.clientPrenom}}</h5>
+              </div>
+            </div>
+          </td>
+          <td class="fs-4">{{rec.categorie}}</td>
+          <td>
+            <span>{{rec.date | date: 'dd/MM/yyyy'}}</span>
+          </td>
+          <td>
+            <span class="badge {{rec.status ?'bg-success' :'bg-warning' }}">
+              {{rec.status ? 'Handled' : 'Pending'}}
+            </span>
+          </td>
+          <td class="text-center">
+            <button type="button" class="btn btn-outline-info btn-sm me-2" (click)="gererReclam(rec.reclamationId)">
+              Handle
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm me-2" (click)="deleteReclamation(rec.reclamationId)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<!-- 
+  <div class="modal fade" id="addReclamationModal" tabindex="-1" aria-labelledby="addReclamationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addReclamationModalLabel">Add Reclamation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()" #reclamationForm="ngForm">
+            <div class="mb-3">
+              <label for="client" class="form-label">Client</label>
+              <select id="client" required [(ngModel)]="reclamation.client" name="clientId" class="form-control">
+                <option *ngFor="let rec of reclamations" > {{rec.client.nom}} {{rec.client.prenom}} </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Reclamation</label>
+              <textarea id="description" required [(ngModel)]="reclamation." name="description" class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="status" class="form-label">Status</label>
+              <select id="status" required [(ngModel)]="reclamation.status" name="status" class="form-control">
+                <option value="Pending">Pending</option>
+                <option value="Resolved">Resolved</option>
+                <option value="Closed">Closed</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

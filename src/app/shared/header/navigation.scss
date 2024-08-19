@@ -1,0 +1,30 @@
+/* Button styles */
+.logout-button {
+    background-color: #ff4c4c; /* Red background for logout */
+    color: white; /* White text color */
+    border-radius: 4px; /* Rounded corners */
+    padding: 8px 12px; /* Padding for size */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+  }
+  
+  .logout-button:hover {
+    background-color: #e63946; /* Darker red on hover */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .logout-button:focus {
+    outline: none; /* Remove outline on focus */
+  }
+  
+  .nav-item {
+    margin: 0 5px; /* Space between items */
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center; /* Align items in the center */
+    justify-content: center; /* Center text and icon */
+  }
+  

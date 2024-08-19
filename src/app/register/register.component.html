@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="./register.component.scss">
+</head>
+<body>
+<div class="login-box">
+  <h2>Register</h2>
+  <form>
+    <div class="user-box">
+      <input type="text" name="prenom" [(ngModel)]="client.prenom" required>
+      <label>First name</label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="nom" [(ngModel)]="client.nom" required>
+      <label>Last name</label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="cin" [(ngModel)]="client.cin" required>
+      <label>CIN</label>
+    </div>
+    <div class="user-box">
+      <input type="number" name="age" [(ngModel)]="client.age" required min="0">
+      <label>Age</label>
+    </div>
+    <div class="user-box">
+      <input type="tel" name="telephone" required [(ngModel)]="client.telephone" >
+      <label>Telephone</label>
+    </div>
+    <div class="user-box">
+      <input type="email" name="email" [(ngModel)]="client.email" required>
+      <label>Email</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" [(ngModel)]="client.password" required>
+      <label>Password</label>
+    </div>
+   
+    <button href="#" (click)="onRegister()">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Create account
+    </button>
+  </form>
+</div>
+</body>
+</html>

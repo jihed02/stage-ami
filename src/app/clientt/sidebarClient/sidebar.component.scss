@@ -1,0 +1,43 @@
+/* Sidebar logo container */
+.logo-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    margin-bottom: 20px; /* Margin below the logo */
+    padding: 10px;
+    background-color: #fff; /* White background for the logo container */
+    border-radius: 8px; /* Rounded corners for a smoother look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    text-align: center; /* Center align text and image */
+  }
+  
+  /* Logo image styling */
+  .logo-icon {
+    width: 60px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 4px; /* Slightly rounded corners for the image */
+  }
+  
+  /* Logo text styling */
+  #logo { margin-top: 15px;
+  /* Space between the logo and text */
+    font-size: 18px; /* Adjusted font size for better visibility */
+    font-weight: bold; /* Make the text bold */
+    color: #08305b; /* Blue color for "AMI Assurance" text */
+    letter-spacing: 0.5px; /* Space between letters */
+    display: inline-block; /* Keep text and image on the same line */
+    vertical-align: middle; /* Align text vertically with the image */
+    line-height: 1; /* Ensure text and image are aligned properly */
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    width: 250px;
+    background-color: #333; /* Dark background for the sidebar */
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 10px; /* Add padding for better spacing */
+  }
+  

@@ -1,0 +1,124 @@
+<div class="container mt-4">
+  <!-- Header Section -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-dark font-weight-bold fs-4">Client List</h2>
+    <div class="d-flex align-items-center">
+      <input 
+        type="text" 
+        class="form-control me-3" 
+        placeholder="Search by CIN" 
+        [(ngModel)]="searchCIN" 
+        (keyup)="onSearch()">
+      <button type="button" class="btn btn-success" (click)="openAddClient()">
+        <i class="bi bi-person-plus-fill me-2"></i>Add Client
+      </button>
+    </div>
+  </div>
+
+  <!-- Table Section -->
+  <div class="table-responsive">
+    <table class="table table-striped table-hover align-middle text-nowrap">
+      <thead class="table-dark">
+        <tr>
+          <th class="text-light font-weight-bold fs-5">Client</th>
+          <th class="text-light font-weight-bold fs-5">CIN</th>
+          <th class="text-light font-weight-bold fs-5">Status</th>
+          <th class="text-light font-weight-bold fs-5">Telephone</th>
+          <th class="text-light font-weight-bold fs-5 text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cl of filteredClients">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="../../../assets/images/users/user1.jpg" alt="user" width="50" class="rounded-circle shadow-sm">
+              <div class="ms-3">
+                <h5 class="mb-0 font-weight-bold">{{cl.nom}} {{cl.prenom}}</h5>
+              </div>
+            </div>
+          </td>
+          <td class="fs-5">{{cl.cin}}</td>
+          <td>
+            <span class="badge" [ngClass]="getBadgeClass()">
+              {{ getBadgeText() }}
+            </span>
+          </td>
+          
+          <td>{{cl.telephone}}</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-outline-info btn-sm me-2" (click)="openEditClient(cl)">
+              Update
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm me-2" (click)="deleteClient(cl.cin)">
+              Delete
+            </button>
+            <button type="button" class="btn btn-outline-secondary btn-sm">
+              Block
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add/Edit Client Modal -->
+  <div class="modal fade" id="addClientModal" tabindex="-1" aria-labelledby="addClientModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addClientModalLabel">Add Client</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nom</label>
+                  <input type="text" id="name" required [(ngModel)]="client.nom" name="nom" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="prenom" class="form-label">Prenom</label>
+                  <input type="text" id="prenom" required [(ngModel)]="client.prenom" name="prenom" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" required [(ngModel)]="client.email" name="email" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="cin" class="form-label">CIN</label>
+                  <input type="text" id="cin" required [(ngModel)]="client.cin" name="cin" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="age" class="form-label">Age</label>
+                  <input type="number" id="age" required [(ngModel)]="client.age" name="age" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="telephone" class="form-label">Telephone</label>
+                  <input type="text" id="telephone" required [(ngModel)]="client.telephone" name="telephone" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="text" id="password" required [(ngModel)]="client.password" name="password" class="form-control">
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-3">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
