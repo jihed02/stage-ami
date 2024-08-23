@@ -12,6 +12,7 @@ import * as bootstrap from 'bootstrap';
   standalone: true,
   imports:[NgFor,FormsModule,CommonModule,],
   templateUrl: 'client.component.html',
+
   
 })
 export class ClientComponent implements OnInit {
@@ -35,6 +36,7 @@ export class ClientComponent implements OnInit {
   ngOnInit(): void {
     this.data.getClients().subscribe((cl)=>{
      this.clients=cl; 
+     console.log(cl);
      this.filteredClients = [...this.clients];    
     })
    }
@@ -158,16 +160,16 @@ onSubmit() {
       this.filteredClients = this.clients.filter(client => client.cin.toString().includes(searchCINNum.toString()));
     }
   }
- 
-  getBadgeClass() {
-    console.log(this.client.reclamations.some(reclamation => reclamation.status==false))
-    return this.client.reclamations.some(reclamation => reclamation.status==false) ? 'bg-warning' : 'bg-success';
-
-  }
-
-  getBadgeText() {
-    return this.client.reclamations.some(reclamation => reclamation.status==false) ? 'En attente' : 'Pas de réclamations';
+  hasPendingReclamation(client: Client): boolean {
+    return client.reclamations.some(reclamation => reclamation.status ===false);
   }
  
+  getBadgeClass(client: Client): string {
+    return this.hasPendingReclamation(client) ? 'bg-warning' : 'bg-success';
+  }
+
+  getBadgeText(client: Client): string {
+    return this.hasPendingReclamation(client) ? 'en attente' : 'Pas de reclamations';
+  }
   
 }

@@ -24,7 +24,6 @@ export class HomeComponent {
   reclamation:Reclamation={
     status: false,
     categorie: '',
-    detail: '',
     client: {
       nom: '',
       prenom: '',
@@ -38,7 +37,11 @@ export class HomeComponent {
       reclamations: []
     },
     date: '',
-    id: 0
+    id: 0,
+    detail: {
+      detailId:0,
+      text:''
+    }
   }
 
   constructor(private data:DataService,private snackBar: MatSnackBar) {}
