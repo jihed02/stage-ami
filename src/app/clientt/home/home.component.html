@@ -10,19 +10,19 @@
     <!-- Top Navigation Bar -->
     <header class="navbar">
       <nav>
-        <ul>
+        <ul class="nav-list">
           <li><button routerLink="/profile">Profile</button></li>
           <li><button routerLink="/settings">Settings</button></li>
-          <li><button (click)="logout()">Logout</button></li>
         </ul>
       </nav>
+      <button class="logout-btn" (click)="logout()">Log out</button>
     </header>
 
     <!-- Content Area -->
     <section class="main-content">
       <div class="form-wrapper">
-        <h2>ADD a Reclamation</h2>
-        <form #reclamationForm="ngForm">
+        <h2 class="form-title">Add a Reclamation</h2>
+        <form #reclamationForm="ngForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="category">Select Category</label>
             <select id="category" name="categorie" [(ngModel)]="reclamation.categorie" required>
@@ -40,7 +40,7 @@
           </div>
          
           <div class="form-actions">
-            <button type="submit" (click)="onSubmit()" >Submit</button>
+            <button type="submit" class="submit-btn" (click)="onSubmit()">Submit</button>
           </div>
         </form>
       </div>

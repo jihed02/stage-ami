@@ -157,7 +157,7 @@ onSubmit() {
       this.filteredClients = [...this.clients];
     } else {
       const searchCINNum = parseInt(this.searchCIN, 10);
-      this.filteredClients = this.clients.filter(client => client.cin.toString().includes(searchCINNum.toString()));
+      this.filteredClients = this.clients.filter(client => client.cin.toString().startsWith(searchCINNum.toString()));
     }
   }
   hasPendingReclamation(client: Client): boolean {

@@ -45,38 +45,3 @@
       </tbody>
     </table>
   </div>
-<!-- 
-  <div class="modal fade" id="addReclamationModal" tabindex="-1" aria-labelledby="addReclamationModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addReclamationModalLabel">Add Reclamation</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form (ngSubmit)="onSubmit()" #reclamationForm="ngForm">
-            <div class="mb-3">
-              <label for="client" class="form-label">Client</label>
-              <select id="client" required [(ngModel)]="reclamation.client" name="clientId" class="form-control">
-                <option *ngFor="let rec of reclamations" > {{rec.client.nom}} {{rec.client.prenom}} </option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="description" class="form-label">Reclamation</label>
-              <textarea id="description" required [(ngModel)]="reclamation." name="description" class="form-control"></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="status" class="form-label">Status</label>
-              <select id="status" required [(ngModel)]="reclamation.status" name="status" class="form-control">
-                <option value="Pending">Pending</option>
-                <option value="Resolved">Resolved</option>
-                <option value="Closed">Closed</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->

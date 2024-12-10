@@ -1,50 +1,53 @@
 <div class="home-container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <app-sidebarclient></app-sidebarclient>
-    </aside>
-  
-    <!-- Main Content -->
-    <main class="content">
-      <!-- Top Navigation Bar -->
-      <header class="navbar">
-        <nav>
-          <ul>
-            <li><button routerLink="/profile">Profile</button></li>
-            <li><button routerLink="/settings">Settings</button></li>
-            <li><button (click)="logout()">Logout</button></li>
-          </ul>
-        </nav>
-      </header>
-  
-      <!-- Content Area -->
-      <section class="main-content">
-        <div class="reclamations-list">
-          <h2>My Reclamations</h2>
-            
-            <div *ngIf="mesReclams.length > 0; else noReclamations">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Category</th>
-                    <th>Details</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let reclamation of mesReclams">
-                    <td>{{ reclamation.categorie }}</td>
-                    <td>{{ reclamation.detail.text }}</td>
-                    <td>{{ reclamation.date | date: 'dd/MM/yyyy' }}</td>
-                    <td>{{ reclamation.status ? 'Resolved' : 'Pending' }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            
-            <ng-template #noReclamations>
-              <p>Aucune réclamation trouvée.</p>
-            </ng-template>
-          </div>
-          
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <app-sidebarclient></app-sidebarclient>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content">
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+      <nav>
+        <ul class="nav-list">
+          <li><button routerLink="/profile">Profile</button></li>
+          <li><button routerLink="/settings">Settings</button></li>
+        </ul>
+      </nav>
+      <button class="logout-btn" (click)="logout()">Log out</button>
+    </header>
+    <!-- Content Area -->
+    <section class="main-content">
+      <div class="reclamations-list">
+        <h2>My Reclamations</h2>
+        
+        <div *ngIf="mesReclams.length > 0; else noReclamations">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Details</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let reclamation of mesReclams">
+                <td>{{ reclamation.categorie }}</td>
+                <td>{{ reclamation.detail.text }}</td>
+                <td>{{ reclamation.date | date: 'dd/MM/yyyy' }}</td>
+                <td [ngClass]="reclamation.status ? 'status-resolved' : 'status-pending'">
+                  {{ reclamation.status ? 'Resolved' : 'Pending' }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <ng-template #noReclamations>
+          <p class="no-reclamations">Aucune réclamation trouvée.</p>
+        </ng-template>
+      </div>
+    </section>
+  </main>
+</div>

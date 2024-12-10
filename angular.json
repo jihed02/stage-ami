@@ -21,7 +21,7 @@
               "ng-apexcharts",
               "apexcharts"
             ],
-            "outputPath": "dist/nice-angular-lite",
+            "outputPath": "dist/ami_front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -45,12 +45,12 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500mb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "4mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
+                  "maximumWarning": "4kb",
                   "maximumError": "4kb"
                 }
               ],

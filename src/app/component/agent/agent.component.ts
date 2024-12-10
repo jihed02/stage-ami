@@ -131,9 +131,8 @@ export class AgentComponent implements OnInit {
       this.filtredAgents=[...this.agents];
     }
     else{
-      this.filtredAgents=this.agents.filter(agent=>agent.matricule.toString().includes(this.searchMat));
+      this.filtredAgents=this.agents.filter(agent=>agent.matricule.toString().startsWith(this.searchMat));
     }
     }
     
-
 }

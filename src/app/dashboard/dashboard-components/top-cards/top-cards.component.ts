@@ -22,13 +22,13 @@ export class TopCardsComponent implements OnInit {
     this.data.getClientsNumber().subscribe({
       next: (res: number) => {
         this.clientsNumber = res;
-        this.updateTopCards(); // Update after clients number is fetched
+        this.updateTopCards(); 
       },
       error: (err: any) => {
         console.log(err);
       }
     });
-    // Fetch agents number
+
     this.data.getAgentsNumber().subscribe({
       next: (res: number) => {
         this.agentsNumber = res;
@@ -39,7 +39,7 @@ export class TopCardsComponent implements OnInit {
       }
     });
 
-    // Fetch clients number
+
     
   }
 
@@ -51,17 +51,12 @@ export class TopCardsComponent implements OnInit {
         title: 'Reclamations',
         subtitle: '5'
       },
-      {
-        bgcolor: 'danger',
-        icon: 'bi bi-exclamation-triangle',
-        title: 'Alertes',
-        subtitle: '2'
-      },
+     
       {
         bgcolor: 'warning',
         icon: 'bi bi-person-circle fs-3',
         title: 'Clients Number',
-        subtitle: `${this.clientsNumber}` // Update this based on fetched clients number if needed
+        subtitle: `${this.clientsNumber}`
       },
       {
         bgcolor: 'info',
