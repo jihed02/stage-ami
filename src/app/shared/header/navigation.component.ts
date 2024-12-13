@@ -3,14 +3,14 @@ import { NgbDropdownModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LogComponent } from 'src/app/log/log.component';
 import { DataService } from 'src/app/services/data.service';
 import { NgIf } from '@angular/common'; 
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 declare var $: any;
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports:[NgbDropdownModule,LogComponent,NgIf],
+  imports:[NgbDropdownModule,NgIf,RouterModule],
   templateUrl: './navigation.component.html',
   styleUrls:['./navigation.scss']
 })

@@ -4,10 +4,10 @@
 <ul class="navbar-nav float-start me-auto">
   
   <li class="nav-item">
-    <a class="nav-link waves-effect waves-dark" href="/dashboard"> Starter </a>
+    <a class="nav-link waves-effect waves-dark" routerLink="/dashboard"> Starter </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link waves-effect waves-dark" href="/about"> About </a>
+    <a class="nav-link waves-effect waves-dark" routerLink="/about"> About </a>
   </li>
   <!-- ============================================================== -->
   <!-- create new -->
@@ -24,8 +24,8 @@
       <span>Create New</span>
     </a>
     <div ngbDropdownMenu>
-      <a class="dropdown-item" href="#">Client Account</a>
-      <a class="dropdown-item" href="#">Agent Account</a>
+      <a class="dropdown-item" [routerLink]="['/component/client']" routerLinkActive="router-link-active"  >Client Account</a>
+      <a class="dropdown-item" [routerLink]="['/component/agent']" routerLinkActive="router-link-active" >Agent Account</a>
     </div>
   </li>
 </ul>

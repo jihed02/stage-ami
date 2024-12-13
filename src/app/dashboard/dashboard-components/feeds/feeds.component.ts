@@ -77,31 +77,30 @@ export class FeedsComponent implements OnInit {
         class: 'bg-info',
         icon: 'bi bi-bell',
         task: `You have ${this.pendingReclams} pending reclamations`,
-        time: 'Just Now'
+        
     },
     {
         class: 'bg-success',
         icon: 'bi bi-hdd',
-        task: 'Server #1 overloaded.',
-        time: '2 Hours ago'
+        task: 'Server 1 overloaded.',
+        
     },
     {
         class: 'bg-warning',
         icon: 'bi bi-chat-left-text',
         task: this.reclamationsDTO.length>1? `New reclamation received from : ${this.reclamationsDTO[this.reclamationsDTO.length-1].clientNom} `+`${this.reclamationsDTO[this.reclamationsDTO.length-1].clientPrenom}`:'',
-        time: '27 Aout'
+       
     },
     {
         class: 'bg-danger',
         icon: 'bi bi-person',
         task: this.clients.length>0? `New client added : ${this.clients[this.clients.length-1].nom } `+`${this.clients[this.clients.length-1].prenom}`:'',
-        time: '28 Aout'
+        
     },
     {
         class: 'bg-primary',
         icon: 'bi bi-person',
-        task: this.agents.length>0?`New agent added : ${this.agents[this.agents.length-1].nom } `+`${this.agents[this.agents.length-1].prenom}`:'' ,
-        time: '21 Aout'
+        task: this.agents.length>0?`New agent added : ${this.agents[this.agents.length-1].nom } `+`${this.agents[this.agents.length-1].prenom}`:' no agent added yet' ,
     },
 
 ] 
